@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lista_estado_civil">
+        <item>Soltero(a)</item>
+        <item>Casado(a)</item>
+        <item>Viudo(a)</item>
+    </string-array>
+    <string-array name="lista_cargo">
+        <item>Electrónica</item>
+        <item>Robótica</item>
+        <item>Desarrollo de software</item>
+    </string-array>
+</resources>
