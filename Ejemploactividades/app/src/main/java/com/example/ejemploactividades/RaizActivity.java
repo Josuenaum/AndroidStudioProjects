@@ -16,8 +16,5 @@ private TextView mRaizTextview;
         String raiz = intent.getStringExtra(SumaActivity.STATE_SUM_OUTPUT);
         mRaizTextview = findViewById(R.id.raiz_TextView);
         mRaizTextview.setText(raiz);
-
-
-
     }
 }
