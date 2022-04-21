@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasededatosSQLite">
         <activity
+            android:name=".Imagen6"
+            android:exported="false" />
+        <activity
+            android:name=".Imagen5"
+            android:exported="false" />
+        <activity
+            android:name=".Imagen4"
+            android:exported="false" />
+        <activity
+            android:name=".Imagen3"
+            android:exported="false" />
+        <activity
+            android:name=".Imagen2"
+            android:exported="false" />
+        <activity
+            android:name=".Inicio"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

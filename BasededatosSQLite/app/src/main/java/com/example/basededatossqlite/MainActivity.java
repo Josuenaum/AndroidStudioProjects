@@ -2,6 +2,12 @@ package com.example.basededatossqlite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -32,6 +38,71 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button info = findViewById(R.id.info);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), Inicio.class);
+                startActivityForResult(intent, 0);
+
+                Button info = findViewById(R.id.info);
+                info.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent (v.getContext(), Inicio.class);
+                        startActivityForResult(intent, 0);
+                    }
+                });
+
+
+
+                Button info2 = findViewById(R.id.info2);
+                info2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent (v.getContext(), Imagen2.class);
+                        startActivityForResult(intent, 0);
+                    }
+                });
+
+
+                Button info3 = findViewById(R.id.info3);
+                info3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent (v.getContext(), Imagen3.class);
+                        startActivityForResult(intent, 0);
+                    }
+                });
+
+                Button info4 = findViewById(R.id.info4);
+                info4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent (v.getContext(), Imagen4.class);
+                        startActivityForResult(intent, 0);
+                    }
+                });
+                Button info5 = findViewById(R.id.info5);
+                info5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent (v.getContext(), Imagen5.class);
+                        startActivityForResult(intent, 0);
+                    }
+                });
+
+                Button info6 = findViewById(R.id.info6);
+                info6.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent (v.getContext(), Imagen6.class);
+                        startActivityForResult(intent, 0);
+                    }
+                });
+
+            }
+        });
         etCodigo = findViewById(R.id.et_codigo);
         etPrecio = findViewById(R.id.et_precio);
         etDescripcion = findViewById(R.id.et_descripcion);
@@ -42,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         btnBuscarporDescripcion=findViewById(R.id.btn_buscar_descripcion);
 
         btnAlta.setOnClickListener(view -> { alta(); });
-        btnBuscarPorCodigo.setOnClickListener(view -> { buscarPorCodigo();});
+            btnBuscarPorCodigo.setOnClickListener(view -> { buscarPorCodigo();});
         btnBaja.setOnClickListener(view -> bajaArticulo());
         btnActualizar.setOnClickListener(view -> actualizarArticulo());
         btnBuscarporDescripcion.setOnClickListener(view -> BuscarporDescripcion());
@@ -66,16 +137,16 @@ public class MainActivity extends AppCompatActivity {
             if (cursor.moveToNext()) {
                 @SuppressLint("Range") String codigo = cursor.getString(cursor.getColumnIndex("codigo"));
                 @SuppressLint("Range")
-                Double precio = cursor.getDouble(cursor.getColumnIndex("precio"));
+                String precio = etPrecio.getText().toString();
                 etPrecio.setText(precio.toString());
                 etCodigo.setText(codigo);
             }else {
-                Toast.makeText(this, "Articulo: " + descripcion + "No existe en la base de datos ",
+                Toast.makeText(this, "Descripcion de imagen : " + descripcion + "No existe en la base de datos ",
                         Toast.LENGTH_LONG).show();
             }
 
         } else
-            Toast.makeText(this, "El código no debe ser vacío ",
+            Toast.makeText(this, "El campo no debe estar vacio ",
                     Toast.LENGTH_LONG).show();
 
     }
@@ -83,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void actualizarArticulo() {
         String codigo = etCodigo.getText().toString();
-        Double precio = Double.parseDouble(etPrecio.getText().toString());
+        String precio = etPrecio.getText().toString();
         String descripcion = etDescripcion.getText().toString();
 
         SQLiteDatabase db = adminDb.getWritableDatabase();
@@ -96,14 +167,14 @@ public class MainActivity extends AppCompatActivity {
 
             int actualizados = db.update(TABLE_NAME,content,where,whereparams);
             if(actualizados >0){
-                Toast.makeText(this,"El codigo "+codigo+ "se ha actualizadocorrectamente",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Ecosistema: "+codigo+ "se ha actualizado correctamente",Toast.LENGTH_LONG).show();
 
             }else{
-                Toast.makeText(this,"Codigo no encontrado en la base detos",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Ecosistema no encontrado en la base detos",Toast.LENGTH_LONG).show();
 
             }
         }else{
-            Toast.makeText(this,"Codigo no debe ser vacio", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"El campo no debe estar vacio", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -120,17 +191,17 @@ public class MainActivity extends AppCompatActivity {
                     objectArray
             );
             if (registrosBorrados>0){
-                Toast.makeText(this, "Articulo con Código" + codigo + "Borrado de la base de datos ",
+                Toast.makeText(this, "Ecosistema " + codigo + " eliminado de la base de datos ",
                         Toast.LENGTH_LONG).show();
                 etCodigo.setText("");
             } else {
-                Toast.makeText(this, "Código" + codigo + "No existe en la base de datos ",
+                Toast.makeText(this, "El ecosistema " + codigo + "no existe en la base de datos ",
                         Toast.LENGTH_LONG).show();
             }
 
 
         } else
-            Toast.makeText(this, "El código no debe ser vacío ",
+            Toast.makeText(this, "El campo no debe estar vacío ",
                     Toast.LENGTH_LONG).show();
     }
 
@@ -152,21 +223,21 @@ public class MainActivity extends AppCompatActivity {
             if (cursor.moveToNext()) {
                 @SuppressLint("Range") String descripcion = cursor.getString(cursor.getColumnIndex("descripcion"));
                 @SuppressLint("Range")
-                Double precio = cursor.getDouble(cursor.getColumnIndex("precio"));
+                String precio = etPrecio.getText().toString();
                 etPrecio.setText(precio.toString());
                 etDescripcion.setText(descripcion);
             } else {
-                Toast.makeText(this, "Código" + codigo + "No existe en la base de datos ",
+                Toast.makeText(this, "Econosistema " + codigo + "No existe en la base de datos ",
                         Toast.LENGTH_LONG).show();
             }
         } else
-            Toast.makeText(this, "El código no debe ser vacío ",
+            Toast.makeText(this, "El campo no debe estar vacío ",
                     Toast.LENGTH_LONG).show();
     }
 
     private void alta() {
         String codigo = etCodigo.getText().toString();
-        double precio = Double.parseDouble(etPrecio.getText().toString());
+        String precio = etPrecio.getText().toString();
         String descripcion = etDescripcion.getText().toString();
         SQLiteDatabase db = adminDb.getWritableDatabase();
         ContentValues content = new ContentValues();
@@ -174,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
         content.put ("precio", precio);
         content.put ("descripcion", descripcion);
         db.insert(TABLE_NAME,null,content);
-        Toast.makeText(this, "Insertado el código" + codigo + "en la base de datos ",
+        Toast.makeText(this, "Ecosistema añadido" + codigo + "en la base de datos ",
         Toast.LENGTH_LONG).show();
 
 

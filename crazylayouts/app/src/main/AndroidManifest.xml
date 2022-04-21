@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CrazyLayouts">
         <activity
+            android:name=".Informacion"
+            android:exported="false" />
+        <activity
             android:name=".EjemploFrameLayout"
             android:exported="true">
             <intent-filter>

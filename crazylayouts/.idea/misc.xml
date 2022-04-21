@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Josue Naum Ramirez B/AndroidStudioProjects/crazylayouts/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/Josue Naum Ramirez B/AndroidStudioProjects/crazylayouts/app/src/main/res/layout/activity_ejemplo_frame_layout.xml" value="0.18072916666666666" />
+        <entry key="..\:/Users/Josue Naum Ramirez B/AndroidStudioProjects/crazylayouts/app/src/main/res/layout/activity_informacion.xml" value="0.1" />
         <entry key="..\:/Users/Josue Naum Ramirez B/AndroidStudioProjects/crazylayouts/app/src/main/res/layout/ejemplo_linear_layout.xml" value="0.2" />
         <entry key="..\:/Users/Josue Naum Ramirez B/AndroidStudioProjects/crazylayouts/app/src/main/res/layout/ejemplo_relative_layout.xml" value="0.25416666666666665" />
       </map>
